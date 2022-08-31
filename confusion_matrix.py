@@ -4,7 +4,7 @@ class ConfusionMatrix:
 
     def __init__(self, true_values, predicted_values):
         zip_values = zip(true_values, predicted_values)
-        self.size = len(np.unique(true_values))
+        self.size = max(len(np.unique(true_values)), len(np.unique(predicted_values)))
         self.matrix = np.zeros((self.size, self.size), dtype=int)
         self.binary = (self.size == 2)
         for true, predicted in zip_values:
